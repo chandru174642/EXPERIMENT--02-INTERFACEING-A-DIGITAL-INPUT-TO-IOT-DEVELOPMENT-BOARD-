@@ -1,8 +1,8 @@
-###  DATE: 
+###  DATE: 20.02.2024
 
-###  NAME: 
-###  ROLL NO :
-###  DEPARTMENT: 
+###  NAME: CHANDRU.P
+###  ROLL NO :212223110007
+###  DEPARTMENT: CSE(IOT)
 
 
 # EXPERIMENT--02-INTERFACING-A-DIGITAL-INPUT-TO-IOT-DEVELOPMENT-BOARD-
@@ -77,13 +77,43 @@ The full form of an ARM is an advanced reduced instruction set computer (RISC) m
 
 
 ## STM 32 CUBE PROGRAM :
+~~~
+#include "main.h"
+#include"stdbool.h"
+bool IRSENSOR;
+void irpair();
+ while (1)
+  {
+	  irpair();
+  }
+
+void irpair()
+{
+	IRSENSOR=HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_4);
+	if(IRSENSOR==0)
+	{
+		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_0,RESET);
+		HAL_Delay(1000);
+		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_0,SET);
+				HAL_Delay(1000);
+	}
+	else{
+		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_0,RESET);
+			 HAL_Delay(1000);
+	}
+}
+~~~
 
 
 
 ## Output  :
- 
- 
- 
+ ## WITH OBSTACLE IMAGE:
+ ![WhatsApp Image 2024-02-26 at 08 15 01_07c5cb75](https://github.com/Srivatsan0405/EXPERIMENT--02-INTERFACEING-A-DIGITAL-INPUT-TO-IOT-DEVELOPMENT-BOARD-/assets/139841630/59cc421a-449d-4bf2-bff0-afc25eb8f49f)
+
+
+ ## WITHOUT OBSTACLE IMAGE:
+ ![WhatsApp Image 2024-02-26 at 08 14 59_42fc584c](https://github.com/Srivatsan0405/EXPERIMENT--02-INTERFACEING-A-DIGITAL-INPUT-TO-IOT-DEVELOPMENT-BOARD-/assets/139841630/6c8c07e2-8f00-477f-8341-c633b7dfc587)
+
  
 ## Result :
-Interfacing a digital Input (ir pair) with ARM microcontroller based IOT development is executed and the results are verified.
+Interfacing a digital Input (ir pair) with ARM microcontroller based IOT development is executed and the results are verified
